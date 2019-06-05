@@ -16,6 +16,13 @@ public class Cliente {
         this.tipoCliente = tipoCliente;
     }
     
+    public boolean consultarCPF(String cpf){
+        if(this.cpf.equals(cpf)){
+            return true;
+        }else{
+            return false;
+        }
+    }
     
     public String getNome() {
         return nome;

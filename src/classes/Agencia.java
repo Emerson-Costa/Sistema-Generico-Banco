@@ -13,4 +13,11 @@ public class Agencia {
     public void setIdAgencia(String idAgencia) {
         this.idAgencia = idAgencia;
     }
+    
+    public boolean consultar(String agencia){
+        if(idAgencia.equals(agencia)){
+            return true;
+        }
+        return false;
+    }
 }
