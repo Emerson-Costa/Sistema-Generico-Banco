@@ -2,5 +2,15 @@
 package classes;
 
 public class Agencia {
-  String idAgencia;  
+    
+  
+  private String idAgencia;  
+
+    public String getIdAgencia() {
+        return idAgencia;
+    }
+
+    public void setIdAgencia(String idAgencia) {
+        this.idAgencia = idAgencia;
+    }
 }
