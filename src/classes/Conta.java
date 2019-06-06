@@ -1,7 +1,7 @@
 
 package classes;
 
-public class Conta extends Agencia{
+public class Conta {
    private Cliente cliente;
    private String conta;
    private float saldo;

@@ -9,6 +9,15 @@ public class Endereco {
     private String cep;
     private int numero;
 
+    public Endereco(String pais, String cidade, String endereco, String bairro, String cep, int numero) {
+        this.pais = pais;
+        this.cidade = cidade;
+        this.endereco = endereco;
+        this.bairro = bairro;
+        this.cep = cep;
+        this.numero = numero;
+    }
+
     public String getPais() {
         return pais;
     }
@@ -56,6 +65,10 @@ public class Endereco {
     public void setNumero(int numero) {
         this.numero = numero;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Endereco{" + "pais=" + pais + ", cidade=" + cidade + ", endereco=" + endereco + ", bairro=" + bairro + ", cep=" + cep + ", numero=" + numero + '}';
+    }
     
 }
