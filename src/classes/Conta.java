@@ -3,12 +3,12 @@ package classes;
 
 public class Conta {
    private Cliente cliente;
-   private String conta;
+   private String agencia;
    private float saldo;
 
     public Conta(Cliente cliente, String conta, float saldo) {
         this.cliente = cliente;
-        this.conta = conta;
+        this.agencia = conta;
         this.saldo = saldo;
     }
 
@@ -21,11 +21,11 @@ public class Conta {
     }
 
     public String getConta() {
-        return conta;
+        return agencia;
     }
 
     public void setConta(String conta) {
-        this.conta = conta;
+        this.agencia = conta;
     }
 
     public float getSaldo() {
@@ -53,7 +53,7 @@ public class Conta {
     }
     
     public boolean consultar(String conta){
-        if(this.conta.equals(conta)){
+        if(this.agencia.equals(conta)){
             return true;
         }else{
             return false;
@@ -62,7 +62,7 @@ public class Conta {
 
     @Override
     public String toString() {
-        return "Conta{" + "cliente=" + cliente + ", conta=" + conta + ", saldo=" + saldo + '}';
+        return "Conta{" + "cliente=" + cliente + ", conta=" + agencia + ", saldo=" + saldo + '}';
     }
    
    

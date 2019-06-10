@@ -3,14 +3,14 @@ package classes;
 
 public class Cliente {
     private String nome;
-    private String endereco;
+    private Endereco endereco;
     private Data dataNasc;
     private String cpf;
     private String tipoCliente;
 
-    public Cliente(String nome, String endereco, Data dataNasc, String cpf, String tipoCliente) {
+    public Cliente(String cpf, String nome, String pais, String cidade, String rua, String bairro, String cep,int numero, Data dataNasc,String tipoCliente) {
         this.nome = nome;
-        this.endereco = endereco;
+        this.endereco = new Endereco(pais, cidade, rua, bairro, cep, numero);
         this.dataNasc = dataNasc;
         this.cpf = cpf;
         this.tipoCliente = tipoCliente;
@@ -30,14 +30,6 @@ public class Cliente {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
     }
 
     public Data getDataNasc() {
@@ -64,10 +56,13 @@ public class Cliente {
         this.tipoCliente = tipoCliente;
     }
 
-    @Override
-    public String toString() {
-        return "Cliente{" + "nome=" + nome + ", endereco=" + endereco + ", dataNasc=" + dataNasc + ", cpf=" + cpf + ", tipoCliente=" + tipoCliente + '}';
+    public Endereco getEndereco() {
+        return endereco;
     }
-    
-    
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+      
 }

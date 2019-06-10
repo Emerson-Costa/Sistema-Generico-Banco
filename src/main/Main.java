@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class Main {
     
     public static void main(String[] args) {  
-        Agencia agencia;
         Boolean contaAberta = false;
         Scanner ler = new Scanner(System.in);
         
@@ -35,10 +34,10 @@ public class Main {
                    System.out.print("Numero: ");
                    int  numero            = ler.nextInt(); 
                    
-                   agencia                = new Agencia(nomeAgencia,numeroAgencia,pais,cidade,enderecoAgencia,bairro,cep,numero);
+                   
                    
                    contaAberta = true;
-                   System.out.println(agencia.toString());
+                   
                    break;
                    
                case 2:
