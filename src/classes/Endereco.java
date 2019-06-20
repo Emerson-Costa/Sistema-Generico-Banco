@@ -4,15 +4,15 @@ package classes;
 public class Endereco {
     private String pais;
     private String cidade;
-    private String endereco;
+    private String rua;
     private String bairro;
     private String cep;
     private int numero;
 
-    public Endereco(String pais, String cidade, String endereco, String bairro, String cep, int numero) {
+    public Endereco(String pais, String cidade, String rua, String bairro, String cep, int numero) {
         this.pais = pais;
         this.cidade = cidade;
-        this.endereco = endereco;
+        this.rua = rua;
         this.bairro = bairro;
         this.cep = cep;
         this.numero = numero;
@@ -34,12 +34,12 @@ public class Endereco {
         this.cidade = cidade;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getRua() {
+        return rua;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setRua(String endereco) {
+        this.rua = endereco;
     }
 
     public String getBairro() {
@@ -68,7 +68,7 @@ public class Endereco {
 
     @Override
     public String toString() {
-        return "Endereco{" + "pais=" + pais + ", cidade=" + cidade + ", endereco=" + endereco + ", bairro=" + bairro + ", cep=" + cep + ", numero=" + numero + '}';
+        return  "pais: " + pais + " cidade: " + cidade + "endereco: " + rua + " bairro: " + bairro + "cep: " + cep + "numero: " + numero + "\n\n";
     }
     
 }

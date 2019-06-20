@@ -4,11 +4,11 @@ package classes;
 public class Cliente {
     private String nome;
     private Endereco endereco;
-    private Data dataNasc;
+    private String  dataNasc;
     private String cpf;
     private String tipoCliente;
 
-    public Cliente(String cpf, String nome, String pais, String cidade, String rua, String bairro, String cep,int numero, Data dataNasc,String tipoCliente) {
+    public Cliente(String cpf,  String nome,  String pais,  String cidade,  String rua,  String bairro, String cep, int numero, String dataNasc, String tipoCliente) {
         this.nome = nome;
         this.endereco = new Endereco(pais, cidade, rua, bairro, cep, numero);
         this.dataNasc = dataNasc;
@@ -32,11 +32,11 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public Data getDataNasc() {
+    public String getDataNasc() {
         return dataNasc;
     }
 
-    public void setDataNasc(Data dataNasc) {
+    public void setDataNasc(String dataNasc) {
         this.dataNasc = dataNasc;
     }
 
@@ -63,6 +63,5 @@ public class Cliente {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
-
       
 }

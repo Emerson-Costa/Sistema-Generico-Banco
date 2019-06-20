@@ -2,29 +2,53 @@
 package classes;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Agencia {
     private String   nomeAgencia; 
     private Endereco endereco;
     private String   numeroAgencia; 
-    private Conta    conta;
-    private Cliente  cliente;
+    private List<Conta> contas;
+    private List<Cliente> clientes;
 
-    public Agencia(String nomeAgencia, Endereco endereco, String numeroAgencia, Conta conta, Cliente cliente) {
+    public Agencia(String nomeAgencia, String numeroAgencia, String pais, String cidade, String rua, String bairro, String cep, int numero) {
         this.nomeAgencia = nomeAgencia;
-        this.endereco = endereco;
         this.numeroAgencia = numeroAgencia;
-        this.conta = conta;
-        this.cliente = cliente;
+        endereco = new Endereco(pais, cidade, rua, bairro, cep, numero);  
+        contas = new LinkedList<Conta>();
+        clientes = new LinkedList<Cliente>();
     }
     
-    /*2*/
-    public Agencia(String nomeAgencia, String numeroAgencia, String pais, String cidade, String enderecoAgencia, String bairro, String cep, int numero) {
-        this.nomeAgencia = nomeAgencia;
-        this.numeroAgencia = numeroAgencia;
-        endereco = new Endereco(pais, cidade, enderecoAgencia, bairro, cep, numero);  
+    public boolean abrirConta(String tipoConta, String cpf, String nome,String pais, String cidade,String rua, String bairro, String cep, int numero, String dataNasc, String tipoCliente, String numAgencia, double valorInicial  ){
+        Cliente cliente = new Cliente(cpf, nome, pais, cidade, rua, bairro, cep, numero, dataNasc, tipoCliente);
+        Conta conta=null;
+        if(tipoConta.equals("C") || tipoConta.equals("c")  )
+              conta = new Corrente(numAgencia, valorInicial);   
+        else  if(tipoConta.equals("P") || tipoConta.equals("p")  )
+                            conta = new Poupanca(numAgencia, valorInicial);      
+                      else    if(tipoConta.equals("F") || tipoConta.equals("f")  )
+                                          conta = new Facil(numAgencia, valorInicial);             
+                
+         clientes.add(cliente);
+         contas.add(conta);
+        return true;
     }
+
+    public boolean temConta(){
+       if(contas.size() == 0){
+           return false;
+       }  else{
+           return true;
+       }  
+    }
+    
+    @Override
+    public String toString() {
+        return "\nnomeAgencia: "+ nomeAgencia + "\nendereco: " + endereco + "\nnumeroAgencia: " + numeroAgencia + "\ncontas" + contas + "\nclientes: " + clientes+"\n\n";
+    }
+    
+    //encapsulamento
    
     public String getNomeAgencia() {
         return nomeAgencia;
@@ -50,16 +74,19 @@ public class Agencia {
         this.endereco = endereco;
     }
 
-    @Override
-    public String toString() {
-        return "Agencia{" + "nomeAgencia=" + nomeAgencia + ", endereco=" + endereco + ", numeroAgencia=" + numeroAgencia + ", conta=" + conta + ", cliente=" + cliente + '}';
+    public List<Conta> getContas() {
+        return contas;
     }
 
-   
-    
-    
-   
+    public void setContas(List<Conta> contas) {
+        this.contas = contas;
+    }   
 
-    
-    
+    public List<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(List<Cliente> clientes) {
+        this.clientes = clientes;
+    }
 }

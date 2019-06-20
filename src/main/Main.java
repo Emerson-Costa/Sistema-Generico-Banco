@@ -1,21 +1,26 @@
 
 package main;
 
-import classes.Agencia;
+import classes.Banco;
+import java.util.Random;
 import java.util.Scanner;
 
 
 public class Main {
     
     public static void main(String[] args) {  
-        Boolean contaAberta = false;
-        Scanner ler = new Scanner(System.in);
         
+        Scanner ler = new Scanner(System.in);
+        Banco   banco = new Banco();
+       
         int op = 0;
         while(op != 10){
+            
            System.out.print("Informe a Opcao: ");
            op  = ler.nextInt(); ler.nextLine();
+           
            switch(op){
+               
                case 1:
                    System.out.print("Nome Agencia: ");
                    String nomeAgencia     = ler.nextLine();
@@ -25,79 +30,58 @@ public class Main {
                    String pais            = ler.nextLine();
                    System.out.print("Cidade: ");
                    String cidade          = ler.nextLine();
-                   System.out.print("Endereco: ");
-                   String enderecoAgencia = ler.nextLine();
+                   System.out.print("Rua: ");
+                   String rua = ler.nextLine();
                    System.out.print("Bairro: ");
                    String bairro          = ler.nextLine();
                    System.out.print("CEP: ");
                    String cep             = ler.nextLine();
                    System.out.print("Numero: ");
                    int  numero            = ler.nextInt(); 
-                   
-                   
-                   
-                   contaAberta = true;
-                   
+                     
+                   banco.cadastrarAgencia(nomeAgencia, numeroAgencia, pais, cidade, rua, bairro, cep, numero);
+              
                    break;
                    
                case 2:
-    
-                   if(contaAberta){
+                     String tipoConta =  ler.nextLine();
+                     String cpf = ler.nextLine();
+                     String nome =  ler.nextLine();
+                     pais = ler.nextLine();
+                    cidade = ler.nextLine();
+                     rua = ler.nextLine();
+                     bairro = ler.nextLine();
+                     cep = ler.nextLine();
+                     numero = ler.nextInt();
+                     String dataNasc = ler.nextLine();
+                     String tipoCliente = ler.nextLine();
+                     String agencia = ler.nextLine();
+                     double depositoInicial = ler.nextDouble();
                      
-                     
-                   }else{
-                       System.out.println("Nenhuma conta ou agência foi aberta!");
-                   }
+                     banco.abrirConta(tipoConta, cpf, nome, pais, cidade, rua, bairro, cep, numero, dataNasc, tipoCliente, agencia, depositoInicial);
                    break;
                case 3:
-                   if(contaAberta){
-                       
-                   }else{
-                       System.out.println("Nenhuma conta ou agência foi aberta!");
-                   }
+                   
                    break;
                case 4:
-                   if(contaAberta){
-                       
-                   }else{
-                       System.out.println("Nenhuma conta ou agência foi aberta!");
-                   }
+                   
                    break;
                case 5:
-                   if(contaAberta){
-                       
-                   }else{
-                       System.out.println("Nenhuma conta ou agência foi aberta!");
-                   }
+                   
                    break;
                case 6:
-                   if(contaAberta){
-                       
-                   }else{
-                       System.out.println("Nenhuma conta ou agência foi aberta!");
-                   }
+                  
                    break;
                case 7:
-                   if(contaAberta){
-                       
-                   }else{
-                       System.out.println("Nenhuma conta ou agência foi aberta!");
-                   }
+                 
                    break;
                case 8:
-                   if(contaAberta){
-                       
-                   }else{
-                       System.out.println("Nenhuma conta ou agência foi aberta!");
-                   }
+                 
                    break;
                case 9:
-                   if(contaAberta){
-                       
-                   }else{
-                       System.out.println("Nenhuma conta ou agência foi aberta!");
-                   }
+                   
                    break;
+                   
                default:
                    if(op != 0 && op != 10){
                         System.out.println("Entrada inválida");
