@@ -33,9 +33,9 @@ public class Banco {
       for(int i = 0 ; i < agencias.size() ; i++){ //procura a agencia que vai sacare o valor  da conta
              if(agencias.get(i).getNumeroAgencia().equals(agencia)){
                   int j = 0;
-                  while(j < agencias.get(j).getContas().size()){
-                           if(agencias.get(j).getContas().get(j).verificaConta(numeroConta)){
-                               agencias.get(j).getContas().get(j).sacarDinheiro(valor);
+                  while(j < agencias.get(i).getContas().size()){
+                           if(agencias.get(i).getContas().get(j).verificaConta(numeroConta)){
+                               agencias.get(i).getContas().get(j).sacarDinheiro(valor);
                                break;
                            }
                   }
@@ -51,8 +51,8 @@ public class Banco {
              if(agencias.get(i).getNumeroAgencia().equals(agencia)){
                   int j = 0;
                   while(j < agencias.get(j).getContas().size()){
-                           if(agencias.get(j).getContas().get(j).verificaConta(numeroConta)){
-                               agencias.get(j).getContas().get(j).depositarDinheiro(valor);
+                           if(agencias.get(i).getContas().get(j).verificaConta(numeroConta)){
+                               agencias.get(i).getContas().get(j).depositarDinheiro(valor);
                                break;
                            }
                   }

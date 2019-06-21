@@ -45,7 +45,7 @@ public class Agencia {
    
     @Override
     public String toString() {
-        return "\nnomeAgencia: "+ nomeAgencia + "\nendereco: " + endereco + "\nnumeroAgencia: " + numeroAgencia + "\ncontas" + contas + "\nclientes: " + clientes+"\n\n";
+        return "\nnomeAgencia: "+ nomeAgencia + "\nendereco: " + endereco + "\nnumeroAgencia: " + numeroAgencia + "\ncontas: " + contas + "\nclientes: " + clientes+"\n\n";
     }
     
     //encapsulamento

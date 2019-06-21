@@ -41,34 +41,35 @@ public class Main {
                      
                    banco.cadastrarAgencia(nomeAgencia, numeroAgencia, pais, cidade, rua, bairro, cep, numero);
               
+                   System.out.println(banco.getAgencias().get(0).toString());
                    break;
                    
                case 2:
-                     System.out.println("Tipo da conta:  ");
+                     System.out.print("Tipo da conta:  ");
                      String tipoConta =  ler.nextLine();
-                      System.out.println("CPF:  ");
+                      System.out.print("CPF:  ");
                      String cpf = ler.nextLine();
-                     System.out.println("Nome:  ");
+                     System.out.print("Nome:  ");
                      String nome =  ler.nextLine();
-                     System.out.println("País:  ");
+                     System.out.print("País:  ");
                      pais = ler.nextLine();
-                     System.out.println("Cidade:  ");
+                     System.out.print("Cidade:  ");
                     cidade = ler.nextLine();
-                     System.out.println("Rua:  ");
+                     System.out.print("Rua:  ");
                      rua = ler.nextLine();
-                     System.out.println("Bairro:  ");
+                     System.out.print("Bairro:  ");
                      bairro = ler.nextLine();
-                     System.out.println("Cep:  ");
+                     System.out.print("Cep:  ");
                      cep = ler.nextLine();
-                     System.out.println("Numero:  ");
+                     System.out.print("Numero:  ");
                      numero = ler.nextInt();
-                     System.out.println("Data de Nascimento:  ");
+                     System.out.print("Data de Nascimento:  ");
                      String dataNasc = ler.nextLine();
-                      System.out.println("Tipo do Cliente:  ");
+                      System.out.print("Tipo do Cliente:  ");
                      String tipoCliente = ler.nextLine();
-                      System.out.println("Numero da Agencia:  ");
+                      System.out.print("Numero da Agencia:  ");
                      String agencia = ler.nextLine();
-                     System.out.println("Valor Inicial a ser Depositado:  ");
+                     System.out.print("Valor Inicial a ser Depositado:  ");
                      double depositoInicial = ler.nextDouble();
                      
                      banco.abrirConta(tipoConta, cpf, nome, pais, cidade, rua, bairro, cep, numero, dataNasc, tipoCliente, agencia, depositoInicial);
