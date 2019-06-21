@@ -18,23 +18,47 @@ public class Banco {
         return true;
     }
     /*3*/
-    public boolean abrirConta(String tipoConta, String cpf, String nome, String pais,  String cidade, String rua, String bairro, String cep, int numero, String dataNasc,  String tipoCliente, String agencia, double valor ){
+    public boolean abrirConta(String tipoConta, String cpf, String nome, String pais,  String cidade, String rua, String bairro, String cep, int numero, String dataNasc,  String tipoCliente, String agencia, double valorInicial ){
         for(int i = 0 ; i < agencias.size() ; i++){ //procura a agencia que vai abrir a conta
-            
+             if(agencias.get(i).getNumeroAgencia().equals(agencia)){
+                   agencias.get(i).abrirConta(tipoConta, cpf, nome, pais, cidade, rua, bairro, cep, numero, dataNasc, tipoCliente, agencia, valorInicial);
+             }
         }
         return true;
     }
     
     /*4*/
-    public float saque(String numeroAgencia, float valor){
+    public float saque(String agencia, String numeroConta,  float valor){
         
-      
-      
-    
+      for(int i = 0 ; i < agencias.size() ; i++){ //procura a agencia que vai sacare o valor  da conta
+             if(agencias.get(i).getNumeroAgencia().equals(agencia)){
+                  int j = 0;
+                  while(j < agencias.get(j).getContas().size()){
+                           if(agencias.get(j).getContas().get(j).verificaConta(numeroConta)){
+                               agencias.get(j).getContas().get(j).sacarDinheiro(valor);
+                               break;
+                           }
+                  }
+             }
+        }
+     
         return 0;
     }
     /*5*/
-    public boolean depositar(String numeroAgencia, float valor){
+    public boolean depositar(String agencia, String numeroConta,  float valor){
+        
+         for(int i = 0 ; i < agencias.size() ; i++){ //procura a agencia que vai sacare o valor  da conta
+             if(agencias.get(i).getNumeroAgencia().equals(agencia)){
+                  int j = 0;
+                  while(j < agencias.get(j).getContas().size()){
+                           if(agencias.get(j).getContas().get(j).verificaConta(numeroConta)){
+                               agencias.get(j).getContas().get(j).depositarDinheiro(valor);
+                               break;
+                           }
+                  }
+             }
+        }
+        
         return true;
     }
     /*6*/

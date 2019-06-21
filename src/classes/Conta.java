@@ -3,22 +3,36 @@ package classes;
 
 public class Conta {
     
-    private String conta;
+    private String numeroConta;
     private double saldo;
 
     public Conta(String conta, double saldo) {
-        this.conta = conta;
+        this.numeroConta = conta;
         this.saldo = saldo;
     }
 
     public boolean verificaConta(String conta ){
-        if(this.conta.equals(conta)){
+        if(this.numeroConta.equals(conta)){
             return true;
         }else{
             return false;
         }
     }
     
+    public void depositarDinheiro(double valor){
+         saldo += valor;
+    }
+    
+    public double sacarDinheiro(double valor){
+        if(valor >= saldo){
+            saldo -= valor;
+            return valor;
+        }else{
+            return 0;
+        }
+    }
+    
+    //encapsulamento
     public double getSaldo() {
         return saldo;
     }
@@ -28,16 +42,16 @@ public class Conta {
     }
 
     public String getConta() {
-        return conta;
+        return numeroConta;
     }
 
     public void setConta(String conta) {
-        this.conta = conta;
+        this.numeroConta = conta;
     }
 
     @Override
     public String toString() {
-        return "conta: " + conta + "\n saldo: " + saldo + '\n';
+        return "conta: " + numeroConta + "\n saldo: " + saldo + '\n';
     }
     
 }

@@ -22,9 +22,9 @@ public class Main {
            switch(op){
                
                case 1:
-                   System.out.print("Nome Agencia: ");
+                   System.out.print("Nome da Agencia: ");
                    String nomeAgencia     = ler.nextLine();
-                   System.out.print("Numero Agencia: ");
+                   System.out.print("Numero da  Agencia: ");
                    String numeroAgencia   = ler.nextLine();
                    System.out.print("País: ");
                    String pais            = ler.nextLine();
@@ -44,18 +44,31 @@ public class Main {
                    break;
                    
                case 2:
+                     System.out.println("Tipo da conta:  ");
                      String tipoConta =  ler.nextLine();
+                      System.out.println("CPF:  ");
                      String cpf = ler.nextLine();
+                     System.out.println("Nome:  ");
                      String nome =  ler.nextLine();
+                     System.out.println("País:  ");
                      pais = ler.nextLine();
+                     System.out.println("Cidade:  ");
                     cidade = ler.nextLine();
+                     System.out.println("Rua:  ");
                      rua = ler.nextLine();
+                     System.out.println("Bairro:  ");
                      bairro = ler.nextLine();
+                     System.out.println("Cep:  ");
                      cep = ler.nextLine();
+                     System.out.println("Numero:  ");
                      numero = ler.nextInt();
+                     System.out.println("Data de Nascimento:  ");
                      String dataNasc = ler.nextLine();
+                      System.out.println("Tipo do Cliente:  ");
                      String tipoCliente = ler.nextLine();
+                      System.out.println("Numero da Agencia:  ");
                      String agencia = ler.nextLine();
+                     System.out.println("Valor Inicial a ser Depositado:  ");
                      double depositoInicial = ler.nextDouble();
                      
                      banco.abrirConta(tipoConta, cpf, nome, pais, cidade, rua, bairro, cep, numero, dataNasc, tipoCliente, agencia, depositoInicial);

@@ -42,7 +42,7 @@ public class Agencia {
            return true;
        }  
     }
-    
+   
     @Override
     public String toString() {
         return "\nnomeAgencia: "+ nomeAgencia + "\nendereco: " + endereco + "\nnumeroAgencia: " + numeroAgencia + "\ncontas" + contas + "\nclientes: " + clientes+"\n\n";
