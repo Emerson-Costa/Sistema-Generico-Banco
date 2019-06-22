@@ -20,8 +20,13 @@ public class Main {
            op  = ler.nextInt(); ler.nextLine();
            
            switch(op){
+           
+               case 1: //Virada do Mês
+                   
+                   break;
                
-               case 1:
+               case 2://Cadastrar Agencia
+                   
                    System.out.print("Nome da Agencia: ");
                    String nomeAgencia     = ler.nextLine();
                    System.out.print("Numero da  Agencia: ");
@@ -44,7 +49,8 @@ public class Main {
                    System.out.println(banco.getAgencias().get(0).toString());
                    break;
                    
-               case 2:
+               case 3://Abertura de Conta
+           
                      System.out.print("Tipo da conta:  ");
                      String tipoConta =  ler.nextLine();
                       System.out.print("CPF:  ");
@@ -62,7 +68,7 @@ public class Main {
                      System.out.print("Cep:  ");
                      cep = ler.nextLine();
                      System.out.print("Numero:  ");
-                     numero = ler.nextInt();
+                     numero = ler.nextInt();  ler.nextLine();
                      System.out.print("Data de Nascimento:  ");
                      String dataNasc = ler.nextLine();
                       System.out.print("Tipo do Cliente:  ");
@@ -73,29 +79,73 @@ public class Main {
                      double depositoInicial = ler.nextDouble();
                      
                      banco.abrirConta(tipoConta, cpf, nome, pais, cidade, rua, bairro, cep, numero, dataNasc, tipoCliente, agencia, depositoInicial);
+                     
+                     System.out.println(banco.getAgencias().get(0).getContas()+"/n"+banco.getAgencias().get(0).getClientes());
+                     
                    break;
-               case 3:
+               case 4://Saque
+                   
+                   System.out.print("Agencia: ");
+                   agencia = ler.nextLine();
+                   System.out.print("Conta:  ");
+                  String conta = ler.nextLine();
+                   System.out.print("Valor:  ");
+                   double valor =  ler.nextDouble();
+                   
+                   banco.saque(agencia, conta, valor);
                    
                    break;
-               case 4:
+               case 5://Depósito em Conta
+                   
+                   System.out.print("Agencia: ");
+                   agencia = ler.nextLine();
+                   System.out.print("Conta:  ");
+                   conta = ler.nextLine();
+                   System.out.print("Valor:  ");
+                   valor =  ler.nextDouble();
+                   
+                  banco.depositar(agencia, conta, valor);
                    
                    break;
-               case 5:
+               case 6: //Transferência
+                   
+                   System.out.print("Agencia Origem: ");
+                   agencia = ler.nextLine();
+                   System.out.print("Conta Origem: ");
+                   conta = ler.nextLine();
+                   System.out.print("Agencia Destino: ");
+                   String agenciaDestino = ler.nextLine();
+                   System.out.print("Conta Destino: ");
+                   String contaDestino = ler.nextLine();
+                   System.out.println("Valor: ");
+                   valor = ler.nextDouble();
+                   
+                  banco.transferencia(agencia, conta, agenciaDestino, contaDestino);
+                    
+                   break;
+               case 7: //Gerar Extratos
+                   
+                   System.out.print("Agencia: ");
+                   agencia = ler.nextLine();
+                   System.out.print("Conta: ");
+                   conta = ler.nextLine();
+                   
+                   banco.gerarExtratos(agencia, conta);
                    
                    break;
-               case 6:
-                  
-                   break;
-               case 7:
-                 
-                   break;
-               case 8:
-                 
-                   break;
-               case 9:
+               case 8: //Gerar Relatórios
                    
+                   System.out.print("Agencia: ");
+                   agencia = ler.nextLine();
+                   System.out.print("Conta: ");
+                    conta     = ler.nextLine();
+                    System.out.print("CPF:  ");
+                    cpf            = ler.nextLine();
+                    
+                  banco.gerarRelatorios(agencia, conta, cpf);
+                    
                    break;
-                   
+             
                default:
                    if(op != 0 && op != 10){
                         System.out.println("Entrada inválida");

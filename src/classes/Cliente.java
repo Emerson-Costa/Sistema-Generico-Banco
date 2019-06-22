@@ -15,7 +15,13 @@ public class Cliente {
         this.cpf = cpf;
         this.tipoCliente = tipoCliente;
     }
-    
+
+    @Override
+    public String toString() {
+        return   "\nnome: " + nome + "\n endereco: " + endereco + ",\ndataNasc: " + dataNasc + "\n cpf: " + cpf + "\ntipoCliente: " + tipoCliente + "\n";
+    }
+   
+    //encapsulamento
     public boolean consultarCPF(String cpf){
         if(this.cpf.equals(cpf)){
             return true;

@@ -1,6 +1,5 @@
 
 package classes;
-import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -28,7 +27,7 @@ public class Banco {
     }
     
     /*4*/
-    public float saque(String agencia, String numeroConta,  float valor){
+    public float saque(String agencia, String numeroConta,  double  valor){
         
       for(int i = 0 ; i < agencias.size() ; i++){ //procura a agencia que vai sacare o valor  da conta
              if(agencias.get(i).getNumeroAgencia().equals(agencia)){
@@ -45,7 +44,7 @@ public class Banco {
         return 0;
     }
     /*5*/
-    public boolean depositar(String agencia, String numeroConta,  float valor){
+    public boolean depositar(String agencia, String numeroConta,  double valor){
         
          for(int i = 0 ; i < agencias.size() ; i++){ //procura a agencia que vai sacare o valor  da conta
              if(agencias.get(i).getNumeroAgencia().equals(agencia)){
@@ -70,7 +69,7 @@ public class Banco {
         return "";
     }
     /*8*/
-    public String gerarRelatorios(){
+    public String gerarRelatorios(String agencia , String conta, String cpf){
         return "";
     }
 
