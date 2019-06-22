@@ -7,16 +7,18 @@ import java.util.Random;
 public class Banco {
     private List<Agencia> agencias;
     
-    /*1*/
-    
-    /*2*/
+    /*1 - Virada do Mês*/
+    public void viradaMes(){ //Método para o desconto das taxas
+        
+    }
+    /*2 - Cadastrar Agência*/
     public boolean cadastrarAgencia(String nomeAgencia, String numeroAgencia, String pais, String cidade, String rua, String bairro,String cep,int numero){
         agencias = new  LinkedList<Agencia>();
         Agencia agencia = new Agencia(nomeAgencia,numeroAgencia,pais,cidade, rua,bairro,cep,numero);
         agencias.add(agencia);
         return true;
     }
-    /*3*/
+    /*3 - Abertura de Conta*/
     public boolean abrirConta(String tipoConta, String cpf, String nome, String pais,  String cidade, String rua, String bairro, String cep, int numero, String dataNasc,  String tipoCliente, String agencia, double valorInicial ){
         for(int i = 0 ; i < agencias.size() ; i++){ //procura a agencia que vai abrir a conta
              if(agencias.get(i).getNumeroAgencia().equals(agencia)){
@@ -26,7 +28,7 @@ public class Banco {
         return true;
     }
     
-    /*4*/
+    /*4 - Saque*/
     public float saque(String agencia, String numeroConta,  double  valor){
         
       for(int i = 0 ; i < agencias.size() ; i++){ //procura a agencia que vai sacare o valor  da conta
@@ -43,7 +45,7 @@ public class Banco {
      
         return 0;
     }
-    /*5*/
+    /*5 - Depósito em Conta*/
     public boolean depositar(String agencia, String numeroConta,  double valor){
         
          for(int i = 0 ; i < agencias.size() ; i++){ //procura a agencia que vai sacare o valor  da conta
@@ -60,19 +62,22 @@ public class Banco {
         
         return true;
     }
-    /*6*/
+    /*6 - Transferência*/
     public boolean transferencia(String agenciaOrigem, String contaOrigem, String agenciaDestino, String contaDestino ){
         return true;
     }
-    /*7*/
+    /*7 - Gerar Extratos*/
     public String gerarExtratos(String numeroAgencia, String conta){
         return "";
     }
-    /*8*/
+    /*8 - Gerar Relatórios*/
     public String gerarRelatorios(String agencia , String conta, String cpf){
         return "";
     }
 
+ 
+    
+    /*Alguns Métodos auxiliares*/
     
     public String  gerarNumeroConta(String numeroAgencia){ //Método para gerar um numero da conta
        
