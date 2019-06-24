@@ -3,8 +3,8 @@ package classes;
 
 public class Corrente extends Conta{
 
-    public Corrente(String conta, double saldo) {
-        super(conta, saldo);
+    public Corrente(String numeroConta, double saldo, Cliente cliente) {
+        super(numeroConta, saldo, cliente);
     }
 
    public float taxa(){

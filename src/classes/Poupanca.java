@@ -3,8 +3,8 @@ package classes;
 
 public class Poupanca extends Conta{
 
-    public Poupanca(String conta,double saldo) {
-        super(conta, saldo);
+    public Poupanca(String numeroConta, double saldo, Cliente cliente) {
+        super(numeroConta, saldo, cliente);
     }
     
 }

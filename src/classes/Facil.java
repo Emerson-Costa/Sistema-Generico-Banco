@@ -3,8 +3,10 @@ package classes;
 
 public class Facil extends Conta{
 
-    public Facil(String conta, double saldo) {
-        super(conta, saldo);
+    public Facil(String numeroConta, double saldo, Cliente cliente) {
+        super(numeroConta, saldo, cliente);
     }
+
+  
 
 }

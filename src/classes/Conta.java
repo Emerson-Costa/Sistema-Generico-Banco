@@ -2,13 +2,17 @@
 package classes;
 
 public class Conta {
-    
+    Cliente cliente;
     private String numeroConta;
     private double saldo;
-    
-    public Conta(String conta, double saldo) {
-        this.numeroConta = conta;
+    Extrato extrato; //Capaz de guardar os extratos da conta
+  
+    public Conta(String numeroConta, double saldo, Cliente cliente) {
+        this.cliente = cliente;
+        this.numeroConta = numeroConta;
         this.saldo = saldo;
+        extrato = new Extrato( );
+        extrato.transacao(saldo, "Deposito");
     }
 
     public boolean verificaConta(String conta ){
@@ -41,17 +45,19 @@ public class Conta {
         this.saldo = saldo;
     }
 
-    public String getConta() {
+    public String getNumeroConta() {
         return numeroConta;
     }
 
-    public void setConta(String conta) {
+    public void setnumeroConta(String conta) {
         this.numeroConta = conta;
     }
 
     @Override
     public String toString() {
-        return "conta: " + numeroConta + "\n saldo: " + saldo + '\n';
+        return "Conta{" + "cliente=" + cliente + ", numeroConta=" + numeroConta + ", saldo=" + saldo + ", extrato=" + extrato + '}';
     }
+
+    
     
 }

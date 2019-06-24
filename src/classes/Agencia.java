@@ -3,35 +3,43 @@ package classes;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
-public class Agencia {
+public class Agencia implements Comparable<Agencia> {
+    
     private String   nomeAgencia; 
+    private String   numeroAgencia;
     private Endereco endereco;
-    private String   numeroAgencia; 
     private List<Conta> contas;
-    private List<Cliente> clientes;
 
     public Agencia(String nomeAgencia, String numeroAgencia, String pais, String cidade, String rua, String bairro, String cep, int numero) {
         this.nomeAgencia = nomeAgencia;
         this.numeroAgencia = numeroAgencia;
         endereco = new Endereco(pais, cidade, rua, bairro, cep, numero);  
         contas = new LinkedList<Conta>();
-        clientes = new LinkedList<Cliente>();
     }
     
-    public boolean abrirConta(String tipoConta, String cpf, String nome,String pais, String cidade,String rua, String bairro, String cep, int numero, String dataNasc, String tipoCliente, String numAgencia, double valorInicial  ){
+    public boolean abrirConta(String tipoConta, String cpf, String nome,String pais, String cidade,String rua, String bairro, String cep, int numero, String dataNasc, String tipoCliente, double valorInicial  ){
         Cliente cliente = new Cliente(cpf, nome, pais, cidade, rua, bairro, cep, numero, dataNasc, tipoCliente);
         Conta conta=null;
         if(tipoConta.equals("C") || tipoConta.equals("c")  )
-              conta = new Corrente(numAgencia, valorInicial);   
+              conta = new Corrente(gerarNumeroConta(), valorInicial,cliente);   
         else  if(tipoConta.equals("P") || tipoConta.equals("p")  )
-                            conta = new Poupanca(numAgencia, valorInicial);      
+                            conta = new Poupanca(gerarNumeroConta(), valorInicial,cliente);      
                       else    if(tipoConta.equals("F") || tipoConta.equals("f")  )
-                                          conta = new Facil(numAgencia, valorInicial);             
+                                          conta = new Facil(gerarNumeroConta(), valorInicial,cliente);             
                 
-         clientes.add(cliente);
          contas.add(conta);
         return true;
+    }
+    
+     public String gerarNumeroConta(){ //Criar uma lista onde guarda numeros de contas existentes para nao repetir
+            String str="";
+            Random gerador = new Random();
+            for(int i=0 ; i < 5 ; i++){
+                        str += gerador.nextInt(9);
+            }
+           return str;
     }
 
     public boolean temConta(){
@@ -41,11 +49,40 @@ public class Agencia {
            return true;
        }  
     }
-   
+
     @Override
     public String toString() {
-        return "\nnomeAgencia: "+ nomeAgencia + "\nendereco: " + endereco + "\nnumeroAgencia: " + numeroAgencia + "\ncontas: " + contas + "\nclientes: " + clientes+"\n\n";
+        return "   \nAgencia{" + "nomeAgencia=" + nomeAgencia + ", endereco=" + endereco + ", numeroAgencia=" + numeroAgencia + ", contas=" + contas + '}';
     }
+   
+    //Metodos de Ordenacao
+    public void ordenaContasNumero(  ){
+        
+        Conta vet[] = new Conta[contas.size()];
+        for(int i = 0 ; i  <  contas.size() ; i++ ){ //Copia de uma lista para um vetor
+            vet[i] = contas.get(i);
+        }
+        
+        for(int i = 0 ; i < vet.length ; i++){ //Ordena o vetor
+            for(int j = i + 1 ; j < vet.length ; j++){
+                  if(vet[i].getNumeroConta().compareToIgnoreCase(vet[j].getNumeroConta()) > 0) {
+                       Object aux = vet[i];
+                       vet[i] = vet[j];
+                       vet[j] = (Conta) aux;
+                  }
+            }
+        }
+        
+        for(int i = 0 ; i < vet.length ; i++){ //remove os elementos desordenados
+            contas.remove(i);
+        }
+        
+        for(int i = 0 ; i < vet.length ; i++){ //adiciona os elementos ordenados na lista
+            contas.add(vet[i]);
+        }
+           
+    }
+    
     
     //encapsulamento
    
@@ -81,11 +118,16 @@ public class Agencia {
         this.contas = contas;
     }   
 
-    public List<Cliente> getClientes() {
-        return clientes;
+    @Override
+    public int compareTo(Agencia outraAgencia) {
+        if(this.numeroAgencia.compareToIgnoreCase(nomeAgencia) > 0){
+             return 1;
+        }
+        
+        if(this.numeroAgencia.compareToIgnoreCase(nomeAgencia) < 0){
+            return -1;
+        }
+        return 0;
     }
 
-    public void setClientes(List<Cliente> clientes) {
-        this.clientes = clientes;
-    }
 }

@@ -46,7 +46,6 @@ public class Main {
                      
                    banco.cadastrarAgencia(nomeAgencia, numeroAgencia, pais, cidade, rua, bairro, cep, numero);
               
-                   System.out.println(banco.getAgencias().get(0).toString());
                    break;
                    
                case 3://Abertura de Conta
@@ -79,9 +78,7 @@ public class Main {
                      double depositoInicial = ler.nextDouble();
                      
                      banco.abrirConta(tipoConta, cpf, nome, pais, cidade, rua, bairro, cep, numero, dataNasc, tipoCliente, agencia, depositoInicial);
-                     
-                     System.out.println(banco.getAgencias().get(0).getContas()+"/n"+banco.getAgencias().get(0).getClientes());
-                     
+       
                    break;
                case 4://Saque
                    
@@ -120,7 +117,7 @@ public class Main {
                    System.out.println("Valor: ");
                    valor = ler.nextDouble();
                    
-                  banco.transferencia(agencia, conta, agenciaDestino, contaDestino);
+                  banco.transferencia(agencia, conta, agenciaDestino, contaDestino,valor);
                     
                    break;
                case 7: //Gerar Extratos
@@ -129,20 +126,21 @@ public class Main {
                    agencia = ler.nextLine();
                    System.out.print("Conta: ");
                    conta = ler.nextLine();
-                   
-                   banco.gerarExtratos(agencia, conta);
+                  
+                   System.out.println( banco.gerarExtratos(agencia, conta));
                    
                    break;
                case 8: //Gerar Relatórios
                    
-                   System.out.print("Agencia: ");
+                 /*  System.out.print("Agencia: ");
                    agencia = ler.nextLine();
                    System.out.print("Conta: ");
                     conta     = ler.nextLine();
                     System.out.print("CPF:  ");
-                    cpf            = ler.nextLine();
+                    cpf            = ler.nextLine();*/
                     
-                  banco.gerarRelatorios(agencia, conta, cpf);
+                   banco.gerarRelatorios(/*agencia, conta, cpf*/);
+                
                     
                    break;
              
