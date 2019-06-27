@@ -26,12 +26,10 @@ public class Banco{
         return true;
     }
     /*3 - Abertura de Conta*/
-    public boolean abrirConta(String tipoConta, String cpf, String nome, String pais,  String cidade, String rua, String bairro, String cep, int numero, String dataNasc,  String tipoCliente, String agencia, double valorInicial ){
-        for(int i = 0 ; i < agencias.size() ; i++){ //procura a agencia que vai abrir a conta
-             if(agencias.get(i).getNumeroAgencia().equals(agencia)){
+    public boolean abrirConta(String tipoConta, String cpf, String nome, String pais,  String cidade, String rua, String bairro, String cep, int numero, String dataNasc,  String tipoCliente, String numeroAgencia, double valorInicial ){
+        for(int i = 0 ; i < agencias.size() ; i++){ //procura a numeroAgencia que vai abrir a conta
+             if(agencias.get(i).getNumeroAgencia().equalsIgnoreCase(numeroAgencia)){
                    agencias.get(i).abrirConta(tipoConta, cpf, nome, pais, cidade, rua, bairro, cep, numero, dataNasc, tipoCliente, valorInicial); 
-                   System.out.print("O numero da sua conta é: "+agencias.get(i).getContas().get(quantidadeContas).getNumeroConta()+"\n\n");
-                   this.quantidadeContas++;
              }
         }
         
@@ -80,28 +78,33 @@ public class Banco{
         
             for(int i = 0 ; i < agencias.size() ; i++){ //procura a agencia  e a conta de Origem que vai transferir o valor
                 if(agencias.get(i).getNumeroAgencia().equals(agenciaOrigem)){
+                    
                      int j = 0;
-                     while(j < agencias.get(j).getContas().size()){
+                     while(j < agencias.get(i).getContas().size()){
+                         
                               if(agencias.get(i).getContas().get(j).verificaConta(contaOrigem)){
                                    agencias.get(i).getContas().get(j).sacarDinheiro(valor);
                                    agencias.get(i).getContas().get(j).extrato.transacao(valor,"Transferencia");
                                }
+                               j++;
                      }
                 }
-            } 
+           } 
            
             for(int i = 0 ; i < agencias.size() ; i++){ //procura a agencia  e a conta Destino que vai Receber o valor Transferido
                if(agencias.get(i).getNumeroAgencia().equals(agenciaOrigem)){
+                   
                     int j = 0;
-                    while(j < agencias.get(j).getContas().size()){
+                    while(j < agencias.get(i).getContas().size()){
+                        
                              if(agencias.get(i).getContas().get(j).verificaConta(contaOrigem)){
-                                 agencias.get(i).getContas().get(j).depositarDinheiro(valor);
+                                  agencias.get(i).getContas().get(j).depositarDinheiro(valor);
                              }
+                             j++;
                     }
                }
            } 
-           return true;
-           
+           return true;   
     }
     
     /*7 - Gerar Extratos*/
@@ -131,12 +134,12 @@ public class Banco{
         
         Agencia vet[] = new Agencia[agencias.size()]; //Cria um vetor de agencias
         
-        for(int i = 0 ; i  <  agencias.size() - 1 ; i++ ){ //Copia de uma lista para um vetor de agencias
+        for(int i = 0 ; i  <  agencias.size() ; i++ ){ //Copia de uma lista para um vetor de agencias
             vet[i] = agencias.get(i);
         }
         
-       for(int i = 0 ; i < vet.length - 1 ; i++){ //Ordena o vetor
-            for(int j = i + 1 ; j < vet.length  - 1; j++){
+       for(int i = 0 ; i < vet.length ; i++){ //Ordena o vetor
+            for(int j = i + 1 ; j < vet.length ; j++){
                   if(vet[i].getNumeroAgencia().compareToIgnoreCase(vet[j].getNumeroAgencia()) > 0) {
                        Object aux = vet[i];
                        vet[i] = vet[j];
@@ -145,12 +148,10 @@ public class Banco{
             }
         }
         
-        int TAM =  vet.length;
-        for(int i = 0 ; i < TAM - 1 ; i++){ //remove os elementos desordenados da lista
-            agencias.remove(i);
-        }
+       agencias.removeAll(agencias);//Remove todas as informacoes desordenadas da lista
+       
         
-        for(int i = 0; i < TAM - 1; i++){ //adiciona os elementos ordenados na lista
+        for(int i = 0; i < vet.length ; i++){ //adiciona os elementos ordenados na lista
             agencias.add(vet[i]);
         }
            

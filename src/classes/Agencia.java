@@ -11,12 +11,14 @@ public class Agencia implements Comparable<Agencia> {
     private String   numeroAgencia;
     private Endereco endereco;
     private List<Conta> contas;
-
+    private int numero; //vai ajudar na geração de numeros das contas
+    
     public Agencia(String nomeAgencia, String numeroAgencia, String pais, String cidade, String rua, String bairro, String cep, int numero) {
         this.nomeAgencia = nomeAgencia;
         this.numeroAgencia = numeroAgencia;
         endereco = new Endereco(pais, cidade, rua, bairro, cep, numero);  
         contas = new LinkedList<Conta>();
+        numero = 0;
     }
     
     public boolean abrirConta(String tipoConta, String cpf, String nome,String pais, String cidade,String rua, String bairro, String cep, int numero, String dataNasc, String tipoCliente, double valorInicial  ){
@@ -34,12 +36,40 @@ public class Agencia implements Comparable<Agencia> {
     }
     
      public String gerarNumeroConta(){ //Criar uma lista onde guarda numeros de contas existentes para nao repetir
-            String str="";
-            Random gerador = new Random();
-            for(int i=0 ; i < 5 ; i++){
-                        str += gerador.nextInt(9);
-            }
-           return str;
+          
+         numero ++;//incrementa o numero
+          int  cont = numero;
+           int quantidadeDigito=0;
+           
+           while(cont != 0){//contar os digitos do numero
+ 
+             quantidadeDigito++;
+               cont = cont/10;
+               
+           }
+           
+           String str;
+           if(quantidadeDigito == 1){ // Concatena 4 zero a esquerda se o numero for de 1 digito 
+                  str = "0000"+numero;
+                 return str;
+           }
+           
+           if(quantidadeDigito == 2){// Concatena 3 zero a esquerda se o numero for de 2digito 
+                 str = "000"+numero;
+                 return str;
+           }
+           
+           if(quantidadeDigito == 3){// Concatena 2 zero a esquerda se o numero for de 3 digito 
+                 str = "00"+numero;
+                 return str;
+           }
+           
+           if(quantidadeDigito == 4){// Concatena 1 zero a esquerda se o numero for de 4 digito 
+                  str = "0"+numero;
+                 return str;
+           }
+         
+           return str = ""+numero;//retorna se o numero conter 5 dígito
     }
 
     public boolean temConta(){
@@ -55,35 +85,32 @@ public class Agencia implements Comparable<Agencia> {
         return "   \nAgencia{" + "nomeAgencia=" + nomeAgencia + ", endereco=" + endereco + ", numeroAgencia=" + numeroAgencia + ", contas=" + contas + '}';
     }
    
-    //Metodos de Ordenacao
-    public void ordenaContasNumero(  ){
+   public void ordenaContasNumero(  ){
         
-        Conta vet[] = new Conta[contas.size()];
-        for(int i = 0 ; i  <  contas.size() ; i++ ){ //Copia de uma lista para um vetor
+        Conta vet[] = new Conta[contas.size()]; //Cria um vetor de agencias
+        
+        for(int i = 0 ; i  <  contas.size() ; i++ ){ //Copia de uma lista para um vetor de agencias
             vet[i] = contas.get(i);
         }
         
-        for(int i = 0 ; i < vet.length ; i++){ //Ordena o vetor
+       for(int i = 0 ; i < vet.length ; i++){ //Ordena o vetor
             for(int j = i + 1 ; j < vet.length ; j++){
                   if(vet[i].getNumeroConta().compareToIgnoreCase(vet[j].getNumeroConta()) > 0) {
-                       Object aux = vet[i];
+                       Conta aux = vet[i];
                        vet[i] = vet[j];
-                       vet[j] = (Conta) aux;
+                       vet[j] =  aux;
                   }
             }
         }
         
-        for(int i = 0 ; i < vet.length ; i++){ //remove os elementos desordenados
-            contas.remove(i);
-        }
+       contas.removeAll(contas);//Remove todas as informacoes desordenadas da lista
+       
         
-        for(int i = 0 ; i < vet.length ; i++){ //adiciona os elementos ordenados na lista
+        for(int i = 0; i < vet.length ; i++){ //adiciona os elementos ordenados na lista
             contas.add(vet[i]);
         }
            
     }
-    
-    
     //encapsulamento
    
     public String getNomeAgencia() {
