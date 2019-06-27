@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-public class Agencia implements Comparable<Agencia> {
+public class Agencia  {
     
     private String   nomeAgencia; 
     private String   numeroAgencia;
@@ -144,17 +144,5 @@ public class Agencia implements Comparable<Agencia> {
     public void setContas(List<Conta> contas) {
         this.contas = contas;
     }   
-
-    @Override
-    public int compareTo(Agencia outraAgencia) {
-        if(this.numeroAgencia.compareToIgnoreCase(nomeAgencia) > 0){
-             return 1;
-        }
-        
-        if(this.numeroAgencia.compareToIgnoreCase(nomeAgencia) < 0){
-            return -1;
-        }
-        return 0;
-    }
 
 }

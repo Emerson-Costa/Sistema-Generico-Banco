@@ -114,7 +114,7 @@ public class Main {
                    String agenciaDestino = ler.nextLine();
                    System.out.print("Conta Destino: ");
                    String contaDestino = ler.nextLine();
-                   System.out.println("Valor: ");
+                   System.out.print("Valor: ");
                    valor = ler.nextDouble();
                    
                   banco.transferencia(agencia, conta, agenciaDestino, contaDestino,valor);
