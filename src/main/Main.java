@@ -29,35 +29,35 @@ public class Main {
                    
                    /*Dados Pré-Cadastrados*/
                    
-                   String nomeAgencia     = "Banco do Brasil";
-                   String numeroAgencia   = "2224";
-                   String pais            = "Brasil";
-                   String cidade          = "Campo Grande(MS)";
-                   String rua             = "Rua Afonso Pena";
-                   String bairro          = "Centro";
-                   String cep             = "000000";
-                   int  numero            = 222; 
+                   String nomeAgencia          = "Banco do Brasil";
+                   String numeroAgencia     = "2224";
+                   String pais                                  = "Brasil";
+                   String cidade                            = "Campo Grande(MS)";
+                   String rua                                    = "Rua Afonso Pena";
+                   String bairro                             = "Centro";
+                   String cep                                   = "000000";
+                   int  numero                                = 222; 
                    banco.cadastrarAgencia(nomeAgencia, numeroAgencia, pais, cidade, rua, bairro, cep, numero);
                    
-                   nomeAgencia            = "Banco Bradesco";
-                   numeroAgencia          = "2422";
-                   pais                   = "Brasil";
-                   cidade                 = "Campo Grande(MS)";
-                   rua                    = "Rua Afonso Pena";
-                   bairro                 = "Centro";
-                   cep                    = "000000";
-                   numero                 = 222; 
+                   nomeAgencia                          = "Banco Bradesco";
+                   numeroAgencia                     = "2422";
+                   pais                                                  = "Brasil";
+                   cidade                                            = "Campo Grande(MS)";
+                   rua                                                    = "Rua Afonso Pena";
+                   bairro                                             = "Centro";
+                   cep                                                   = "000000";
+                   numero                                        = 222; 
                    
                    banco.cadastrarAgencia(nomeAgencia, numeroAgencia, pais, cidade, rua, bairro, cep, numero);
                    
-                   nomeAgencia            = "Banco Santander";
-                   numeroAgencia          = "1129";
-                   pais                   = "Brasil";
-                   cidade                 = "Campo Grande";
-                   rua                    = "Rua Afonso Pena";
-                   bairro                 = "Centro";
-                   cep                    = "000000";
-                   numero                 = 224; 
+                   nomeAgencia                       = "Banco Santander";
+                   numeroAgencia                  = "1129";
+                   pais                                               = "Brasil";
+                   cidade                                         = "Campo Grande";
+                   rua                                                 = "Rua Afonso Pena";
+                   bairro                                          = "Centro";
+                   cep                                                 = "000000";
+                   numero                                      = 224; 
                    
                    banco.cadastrarAgencia(nomeAgencia, numeroAgencia, pais, cidade, rua, bairro, cep, numero);
                    
@@ -86,50 +86,50 @@ public class Main {
                     
                    /*Dados Pré-Cadastrados*/
                    
-                     String tipoConta       = "C";
-                     String cpf             = "999999-9";
-                     String nome            = "Juvenal Antunes Rodrigues";
-                     pais                   = "Brasil";
-                     cidade                 = "Campo Grande(MS)";
-                     rua                    = "Rua dos Cocais";
-                     bairro                 = "Santa Rita";
-                     cep                    = "000000-0";
-                     numero                 = 11;
-                     String dataNasc        = "27/08/1986";
+                     String tipoConta         = "C";
+                     String cpf                          = "999999-9";
+                     String nome                   = "Juvenal Antunes Rodrigues";
+                     pais                                       = "Brasil";
+                     cidade                                 = "Campo Grande(MS)";
+                     rua                                         = "Rua dos Cocais";
+                     bairro                                  = "Santa Rita";
+                     cep                                        = "000000-0";
+                     numero                             = 11;
+                     String dataNasc         = "27/08/1986";
                      String tipoCliente     = "TRADICIONAL";
-                     String agencia         = "2224";
+                     String agencia             = "2224";
                      double depositoInicial = 1500;
                      
                      banco.abrirConta(tipoConta, cpf, nome, pais, cidade, rua, bairro, cep, numero, dataNasc, tipoCliente, agencia, depositoInicial);
                      
-                     tipoConta              = "P";
-                     cpf                    = "888888-8";
-                     nome                   = "Antonio da Costa Pereira";
-                     pais                   = "Brasil";
-                     cidade                 = "Campo Grande(MS)";
-                     rua                    = "Rua Rocha Pires";
-                     bairro                 = "Vila Olinda";
-                     cep                    = "000000-0";
-                     numero                 = 14;
-                     dataNasc               = "30/08/1986";
-                     tipoCliente            = "PREMIUM";
-                     agencia                = "2224";
-                     depositoInicial        = 1000;
+                     tipoConta                        = "P";
+                     cpf                                         = "888888-8";
+                     nome                                  = "Antonio da Costa Pereira";
+                     pais                                      = "Brasil";
+                     cidade                                = "Campo Grande(MS)";
+                     rua                                        = "Rua Rocha Pires";
+                     bairro                                 = "Vila Olinda";
+                     cep                                       = "000000-0";
+                     numero                            = 14;
+                     dataNasc                        = "30/08/1986";
+                     tipoCliente                    = "PREMIUM";
+                     agencia                            = "2224";
+                     depositoInicial           = 1000;
                      
                      banco.abrirConta(tipoConta, cpf, nome, pais, cidade, rua, bairro, cep, numero, dataNasc, tipoCliente, agencia, depositoInicial);
                      
-                     tipoConta              = "F";
-                     cpf                    = "222222-2";
-                     nome                   = "Julia Santana de Souza";
-                     pais                   = "Brasil";
-                     cidade                 = "Campo Grande(MS)";
-                     rua                    = "Rua Madeira";
-                     bairro                 = "Vila Progresso";
-                     cep                    = "000000-0";
-                     numero                 = 14;
-                     dataNasc               = "30/09/2000";
-                     tipoCliente            = "TRADICIONAL";
-                     agencia                = "2224";
+                     tipoConta                     = "F";
+                     cpf                                      = "222222-2";
+                     nome                               = "Julia Santana de Souza";
+                     pais                                   = "Brasil";
+                     cidade                             = "Campo Grande(MS)";
+                     rua                                     = "Rua Madeira";
+                     bairro                              = "Vila Progresso";
+                     cep                                    = "000000-0";
+                     numero                         = 14;
+                     dataNasc                     = "30/09/2000";
+                     tipoCliente                 = "TRADICIONAL";
+                     agencia                         = "2224";
                      depositoInicial        = 1100;
                      
                      banco.abrirConta(tipoConta, cpf, nome, pais, cidade, rua, bairro, cep, numero, dataNasc, tipoCliente, agencia, depositoInicial);
@@ -168,19 +168,19 @@ public class Main {
                    
                    /*Dados Pré-Cadastrados*/
                    
-                   agencia       = "2224";
-                   String conta  = "00001";
-                   double valor  = 100;
+                   agencia                = "2224";
+                   String conta     = "00001";
+                   double valor     = 100;
                    banco.saque(agencia, conta, valor);
                    
-                   agencia       = "2224";
-                   conta         = "00002";
-                   valor         = 100;
+                   agencia               = "2224";
+                   conta                    = "00002";
+                   valor                     = 100;
                    banco.saque(agencia, conta, valor);
                    
-                   agencia       = "2224";
-                   conta         = "00003";
-                   valor         = 100;
+                   agencia              = "2224";
+                   conta                   = "00003";
+                   valor                    = 100;
                    banco.saque(agencia, conta, valor);
                    
                    
@@ -199,18 +199,18 @@ public class Main {
                    /*Dados Pré-Cadastrados*/
                    
                    agencia       = "2224";
-                   conta         = "00001";
-                   valor         = 100;
+                   conta            = "00001";
+                   valor             = 100;
                    banco.depositar(agencia, conta, valor);
                    
                    agencia       = "2224";
-                   conta         = "00002";
-                   valor         = 100;
+                   conta            = "00002";
+                   valor             = 100;
                    banco.depositar(agencia, conta, valor);
                    
                    agencia       = "2224";
-                   conta         = "00003";
-                   valor         = 100;
+                   conta            = "00003";
+                   valor             = 100;
                    banco.depositar(agencia, conta, valor);
                    
                    /*System.out.print("Agencia: ");
@@ -225,7 +225,16 @@ public class Main {
                    break;
                case 6: //Transferência
                    
-                   System.out.print("Agencia Origem: ");
+                   /*Dados Pre-Cadrastrados*/
+                   
+                   agencia = "2224";
+                   conta = "00001";
+                   String agenciaDestino = "2224";
+                   String contaDestino = "00002";
+                   valor = 100;
+                    banco.transferencia(agencia, conta, agenciaDestino, contaDestino,valor);
+                    
+                  /* System.out.print("Agencia Origem: ");
                    agencia = ler.nextLine();
                    System.out.print("Conta Origem: ");
                    conta = ler.nextLine();
@@ -236,7 +245,7 @@ public class Main {
                    System.out.print("Valor: ");
                    valor = ler.nextDouble();
                    
-                  banco.transferencia(agencia, conta, agenciaDestino, contaDestino,valor);
+                  banco.transferencia(agencia, conta, agenciaDestino, contaDestino,valor);*/
                     
                    break;
                case 7: //Gerar Extratos
