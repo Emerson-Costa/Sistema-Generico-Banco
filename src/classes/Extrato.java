@@ -23,6 +23,18 @@ public class Extrato {
             this.transacoes += "TRANSFERENCIA "+ Transacao+"\n";
         }
         
+       if(tipo.equals("AnuidadeTradicional")){
+            this.transacoes += "ANUIDADE CONTA TRADICIONAL  "+ Transacao+"\n";
+       }
+       
+       if(tipo.equals("AnuidadeContaFacil")){
+            this.transacoes += "ANUIDADE CONTA FACIL  "+ Transacao+"\n";
+       }
+       
+        if(tipo.equals("RendimentoPoupanca")){
+            this.transacoes += "RENDIMENTO  "+ Transacao+"\n";
+       }
+        
     }
     
     public String getTransacoes() {

@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-public class Agencia  {
+public class Agencia {
     
     private String   nomeAgencia; 
     private String   numeroAgencia;
@@ -14,8 +14,8 @@ public class Agencia  {
     private int numero; //vai ajudar na geração de numeros das contas
     
     public Agencia(String nomeAgencia, String numeroAgencia, String pais, String cidade, String rua, String bairro, String cep, int numero) {
-        this.nomeAgencia = nomeAgencia;
-        this.numeroAgencia = numeroAgencia;
+        this.nomeAgencia      =  nomeAgencia;
+        this.numeroAgencia =  numeroAgencia;
         endereco = new Endereco(pais, cidade, rua, bairro, cep, numero);  
         contas = new LinkedList<Conta>();
         numero = 0;
@@ -23,13 +23,13 @@ public class Agencia  {
     
     public boolean abrirConta(String tipoConta, String cpf, String nome,String pais, String cidade,String rua, String bairro, String cep, int numero, String dataNasc, String tipoCliente, double valorInicial  ){
         Cliente cliente = new Cliente(cpf, nome, pais, cidade, rua, bairro, cep, numero, dataNasc, tipoCliente);
-        Conta conta=null;
+        Conta    conta=null;
         if(tipoConta.equals("C") || tipoConta.equals("c")  )
-              conta = new Corrente(gerarNumeroConta(), valorInicial,cliente);   
+              conta = new Corrente(gerarNumeroConta(), valorInicial,cliente,tipoConta);   
         else  if(tipoConta.equals("P") || tipoConta.equals("p")  )
-                            conta = new Poupanca(gerarNumeroConta(), valorInicial,cliente);      
+                            conta = new Poupanca(gerarNumeroConta(), valorInicial,cliente,tipoConta);      
                       else    if(tipoConta.equals("F") || tipoConta.equals("f")  )
-                                          conta = new Facil(gerarNumeroConta(), valorInicial,cliente);             
+                                          conta = new Facil("22222", valorInicial,cliente,tipoConta); //Aqui Conta Fácil como 22222    
                 
          contas.add(conta);
         return true;
@@ -37,13 +37,13 @@ public class Agencia  {
     
      public String gerarNumeroConta(){ //Criar uma lista onde guarda numeros de contas existentes para nao repetir
           
-         numero ++;//incrementa o numero
-          int  cont = numero;
+           numero ++;//incrementa o numero
+           int  cont = numero;
            int quantidadeDigito=0;
            
            while(cont != 0){//contar os digitos do numero
  
-             quantidadeDigito++;
+               quantidadeDigito++;
                cont = cont/10;
                
            }
@@ -82,35 +82,9 @@ public class Agencia  {
 
     @Override
     public String toString() {
-        return "   \nAgencia{" + "nomeAgencia=" + nomeAgencia + ", endereco=" + endereco + ", numeroAgencia=" + numeroAgencia + ", contas=" + contas + '}';
+        return "\n\nAgencia{" + "\n          nomeAgencia: " + nomeAgencia +"\n          numeroAgencia: " + numeroAgencia + "\n"+ endereco + "\nContas{ \n" +           contas +"\n"+'}'+"\n";
     }
    
-   public void ordenaContasNumero(  ){
-        
-        Conta vet[] = new Conta[contas.size()]; //Cria um vetor de agencias
-        
-        for(int i = 0 ; i  <  contas.size() ; i++ ){ //Copia de uma lista para um vetor de agencias
-            vet[i] = contas.get(i);
-        }
-        
-       for(int i = 0 ; i < vet.length ; i++){ //Ordena o vetor
-            for(int j = i + 1 ; j < vet.length ; j++){
-                  if(vet[i].getNumeroConta().compareToIgnoreCase(vet[j].getNumeroConta()) > 0) {
-                       Conta aux = vet[i];
-                       vet[i] = vet[j];
-                       vet[j] =  aux;
-                  }
-            }
-        }
-        
-       contas.removeAll(contas);//Remove todas as informacoes desordenadas da lista
-       
-        
-        for(int i = 0; i < vet.length ; i++){ //adiciona os elementos ordenados na lista
-            contas.add(vet[i]);
-        }
-           
-    }
     //encapsulamento
    
     public String getNomeAgencia() {
@@ -144,5 +118,6 @@ public class Agencia  {
     public void setContas(List<Conta> contas) {
         this.contas = contas;
     }   
+
 
 }

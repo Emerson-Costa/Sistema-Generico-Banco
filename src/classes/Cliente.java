@@ -18,11 +18,10 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" + "nome=" + nome + ", endereco=" + endereco + ", dataNasc=" + dataNasc + ", cpf=" + cpf + ", tipoCliente=" + tipoCliente + '}';
+        return "          Cliente{\n" + "               nome: " + nome + "\n               dataNasc: " + dataNasc + "\n               cpf: " + cpf + "\n               tipoCliente: " + tipoCliente + "\n" + endereco +"          ";
     }
 
     
-   
     //encapsulamento
     public boolean consultarCPF(String cpf){
         if(this.cpf.equals(cpf)){

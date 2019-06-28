@@ -2,26 +2,33 @@
 package classes;
 
 public class Conta {
-    Cliente cliente;
+    private String   tipoConta;
+    private Cliente cliente ;
     private String numeroConta;
     private double saldo;
-    Extrato extrato; //Capaz de guardar os extratos da conta
+    private  Extrato extrato; //Capaz de guardar os extratos da conta
   
-    public Conta(String numeroConta, double saldo, Cliente cliente) {
+    public Conta(String numeroConta, double saldo, Cliente cliente, String tipoConta) {
+        this.tipoConta = tipoConta;
         this.cliente = cliente;
         this.numeroConta = numeroConta;
         this.saldo = saldo;
         extrato = new Extrato( );
         extrato.transacao(saldo, "Deposito");
     }
-
-    public boolean verificaConta(String conta ){
-        if(this.numeroConta.equals(conta)){
-            return true;
-        }else{
-            return false;
-        }
+    
+    public void rendimentoPoupanca(){
+        double rendimento = (1/100) * this.saldo;
+        this.saldo += rendimento; 
     }
+     
+     public void descontoTaxaTradicional(){
+         this.saldo -= 15;
+     }
+    
+     public void descontoAnuidadeContaFácil(){
+        this.saldo -= 10;    
+     }
     
     public void depositarDinheiro(double valor){
          saldo += valor;
@@ -35,7 +42,7 @@ public class Conta {
             return 0;
         }
     }
-    
+   
     //encapsulamento
     public double getSaldo() {
         return saldo;
@@ -55,7 +62,31 @@ public class Conta {
 
     @Override
     public String toString() {
-        return "Conta{" + "cliente=" + cliente + ", numeroConta=" + numeroConta + ", saldo=" + saldo + ", extrato=" + extrato + '}';
+        return "\n"+cliente + "\n          numeroConta: " + numeroConta + "\n          saldo: " + saldo + '}'+"\n";
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Extrato getExtrato() {
+        return extrato;
+    }
+
+    public void setExtrato(Extrato extrato) {
+        this.extrato = extrato;
+    }
+
+    public String getTipoConta() {
+        return tipoConta;
+    }
+
+    public void setTipoConta(String tipoConta) {
+        this.tipoConta = tipoConta;
     }
 
     
